@@ -13,6 +13,7 @@ use Aceraven777\PayMaya\Model\Checkout\Item;
 use App\Libraries\PayMaya\User as PayMayaUser;
 use Aceraven777\PayMaya\Model\Checkout\ItemAmount;
 use Aceraven777\PayMaya\Model\Checkout\ItemAmountDetails;
+use Aceraven777\PayMaya\API\Customization;
 
 
 class CartController extends Controller
@@ -48,7 +49,7 @@ class CartController extends Controller
         Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->productSize , 'color' => $request->productColor] )
             ->associate('App\Product');
 
-        return redirect()->route('frontEnd.cart.index')->with('success message', 'Item was added to your cart!');
+        return redirect()->route('frontEnd.cart.index')->with('success_message', 'Item was added to your cart!');
         
     }
 
@@ -119,7 +120,7 @@ class CartController extends Controller
         $list = array();
         // Item
         $itemAmountDetails = new ItemAmountDetails();
-        $itemAmountDetails->tax = "2.00";
+        $itemAmountDetails->tax = "0";
         $itemAmountDetails->subtotal = number_format($sample_total_price, 2, '.', '');
         $itemAmount = new ItemAmount();
         $itemAmount->currency = "PHP";
@@ -175,4 +176,25 @@ class CartController extends Controller
 
         return redirect()->to($itemCheckout->url);
     }
+
+    //customize paymaya
+public function customizeMerchantPage()
+{
+    PayMayaSDK::getInstance()->initCheckout(
+        env('PAYMAYA_PUBLIC_KEY'),
+        env('PAYMAYA_SECRET_KEY'),
+        (\App::environment('production') ? 'PRODUCTION' : 'SANDBOX')
+    );
+
+    $shopCustomization = new Customization();
+    $shopCustomization->get();
+
+    $shopCustomization->logoUrl = asset('logo.jpg');
+    $shopCustomization->iconUrl = asset('favicon.ico');
+    $shopCustomization->appleTouchIconUrl = asset('favicon.ico');
+    $shopCustomization->customTitle = 'PayMaya Payment Gateway';
+    $shopCustomization->colorScheme = '#f3dc2a';
+
+    $shopCustomization->set();
+}
 }

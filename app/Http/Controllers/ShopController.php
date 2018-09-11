@@ -15,8 +15,11 @@ class ShopController extends Controller
     public function index()
     {
         $products = Product::inRandomOrder()->take(12)->get();
-
-        return view('frontEnd.shop')->with('products' , $products);
+        $productCount = count($products);
+        return view('frontEnd.shop',[
+            'products' => $products,
+            'productCount' => $productCount
+        ]);
     }
 
     /**

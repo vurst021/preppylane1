@@ -28,6 +28,7 @@ Route::get('/cart', 'CartController@index')->name('frontEnd.cart.index');
 Route::post('/cart', 'CartController@store')->name('frontEnd.cart.store');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('frontEnd.cart.destroy');
 Route::get('/cart/checkout', 'CartController@checkout')->name('frontEnd.cart.checkout');
+Route::get('/cart/customize', 'CartController@customizeMerchantPage')->name('frontEnd.cart.custom');
 
 Route::get('/empty' , function(){
 	Cart::destroy();

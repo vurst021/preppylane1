@@ -15,7 +15,10 @@
 .img-border{
     border: 2px solid;
 }
-
+.borderless{
+    border-width: 0;
+    border-style: none;
+}
 .quantity {
     float: left;
     margin-right: 15px;
