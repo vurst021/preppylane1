@@ -27,9 +27,9 @@ Route::get('/shop/{product}', 'ShopController@show')->name('frontEnd.shop.show')
 Route::get('/cart', 'CartController@index')->name('frontEnd.cart.index');
 Route::post('/cart', 'CartController@store')->name('frontEnd.cart.store');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('frontEnd.cart.destroy');
-Route::get('/cart/checkout', 'ShopController@checkout')->name('frontEnd.cart.checkout');
+Route::get('/cart/checkout', 'CartController@checkout')->name('frontEnd.cart.checkout');
 
-Route::get('empty' , function(){
+Route::get('/empty' , function(){
 	Cart::destroy();
 });
 
