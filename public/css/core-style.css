@@ -55,8 +55,8 @@ a {
     text-decoration: none;
     outline: 0 solid transparent;
     color: #000000;
-    font-weight: 600;
-    font-size: 12px; }
+/*    font-weight: 600;
+    font-size: 12px;*/ }
 
 ul,
 ol {
@@ -170,10 +170,15 @@ img {
   background-color: #ffffff !important; }
 
 .bg-dark {
-  background-color: #000000 !important; }
+  background-color: #000000 !important; 
+}
 
 .bg-transparent {
-  background-color: transparent !important; }
+  background-color: transparent !important; 
+}
+.bg-pink {
+  background-color: #e46f7a !important; 
+}
 
 .font-bold {
   font-weight: 700; }

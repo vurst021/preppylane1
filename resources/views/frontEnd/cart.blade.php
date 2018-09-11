@@ -27,10 +27,14 @@
 
     <div class="container">
         <div class="card shopping-cart">
-            <div class="card-header bg-dark text-light">
+            <div class="card-header bg-pink text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Cart
+<<<<<<< HEAD
                 <a href="{{route('frontEnd.shop')}}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+=======
+                <a href="" class="btn btn-outline-info btn-sm pull-right" style="color:white;border:white;">Continue shopping</a>
+>>>>>>> c9e14401be3f794be6a5ac83b499c5f8c99aba75
                 <div class="clearfix"></div>
             </div>
             @if(session()->has('success_message'))
@@ -57,26 +61,33 @@
                     <!-- PRODUCT -->
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-2 text-center">
-                             <a href="{{ route('frontEnd.shop.show', $item->model->slug) }}"><img class="img-responsive" src="{{ asset('/img/products/'. $item->model->slug. '.jpg')}}" alt="prewiew" width="120" height="80"></a>
+                             <a href="{{ route('frontEnd.shop.show', $item->model->slug) }}">
+                                <img class="img-responsive" src="{{ asset('/img/products/'. $item->model->slug. '.jpg')}}" alt="prewiew" width="120" height="80"></a>
                         </div>
                         <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                            <h4 class="product-name"><a href="{{ route('frontEnd.shop.show', $item->model->slug) }}"><strong>{{ $item->name}}</strong></a></h4>
+                            <h4 class="product-name">
+                                <a href="{{ route('frontEnd.shop.show', $item->model->slug) }}">
+                                    <strong>
+                                        <input type="" name="items[]['name']" class="bg-transparent borderless" readonly value="{{ $item->name}}">
+                                    </strong>
+                                </a>
+                            </h4>
                             <h4>
                                 <small>{{ $item->details}}</small>
                             </h4>
                             <h5>
-                                <small>Size : {{ $item->options->size}}</small>
+                                <small>Size : <input type="" name="items[]['size']" class="bg-transparent borderless" readonly value="{{ $item->options->size}}"></small>
                             </h5>
                             <h5>
-                                <small>Size : {{ $item->options->color}}</small>
+                                <small>Color : <input type="" name="items[]['color']" class="bg-transparent borderless" readonly value="{{ $item->options->color}}"></small>
                             </h5>
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                             <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                                <h6><strong>{{ $item->model->presentprice()}}<span class="text-muted">x</span></strong></h6>
+                                <h6><strong><input size="4" name="items[]['price']" class="bg-transparent borderless" readonly value="{{ $item->model->presentprice()}}"> <span class="text-muted">x</span></strong></h6>
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
-                                    <input type="number" step="1" max="99" min="1" value="{{ $item->qty }}" title="Qty" class="qty form-control" size="4">
+                                    <input type="number" name="items[]['quantity']" step="1" max="99" min="1" value="{{ $item->qty }}" title="Qty" class="qty form-control" size="4">
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
                                 <form method="POST" action="{{route('frontEnd.cart.destroy', $item->rowId) }}">
@@ -121,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="pull-right text-right">
                     <div class="pull-right" style="margin: 5px">
                         SubTotal:<br>
@@ -131,6 +143,12 @@
                         {{ presentPrice(Cart::subtotal())}}<br>
                         {{ presentPrice(Cart::tax())}}<br>
                         {{ presentPrice(Cart::total())}}
+=======
+                <div class="pull-right" style="margin: 20px">
+                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                    <div class="pull-right" style="margin: 5px">
+                        Total price: <b>₱ {{ Cart::total() }}</b>
+>>>>>>> c9e14401be3f794be6a5ac83b499c5f8c99aba75
                     </div>
                      <br>
                     <a href="" class="btn btn-success pull-right">Checkout</a>

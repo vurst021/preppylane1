@@ -54,9 +54,9 @@
                             <p>
                                 
                             </p></option>
-                        <option value="X">Size: Large</option>
-                        <option value="M">Size: Medium</option>
-                        <option value="S">Size: Small</option>
+                        <option value="Large">Size: Large</option>
+                        <option value="Medium">Size: Medium</option>
+                        <option value="Small">Size: Small</option>
                     </select>
                     <select name="productColor" id="productColor">
                         <option value="Black">Color: Black</option>
