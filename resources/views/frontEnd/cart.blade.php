@@ -30,7 +30,7 @@
             <div class="card-header bg-dark text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Cart
-                <a href="" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+                <a href="{{route('frontEnd.shop')}}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
                 <div class="clearfix"></div>
             </div>
             @if(session()->has('success_message'))
@@ -121,11 +121,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                <div class="pull-right text-right">
                     <div class="pull-right" style="margin: 5px">
-                        Total price: <b>50.00€</b>
+                        SubTotal:<br>
+                        Tax:<br>
+                        Total:
                     </div>
+                    <div class="pull-right" style="margin: 5px">
+                        {{ presentPrice(Cart::subtotal())}}<br>
+                        {{ presentPrice(Cart::tax())}}<br>
+                        {{ presentPrice(Cart::total())}}
+                    </div>
+                     <br>
+                    <a href="" class="btn btn-success pull-right">Checkout</a>
                 </div>
             </div>
         </div>

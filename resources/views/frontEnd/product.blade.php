@@ -35,7 +35,7 @@
         
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix">
-            <span>mango</span>
+            <span>PreppyLane</span>
             <a href="cart.html">
                 <h2>{{ $product->name }}</h2>
             </a>
@@ -47,7 +47,7 @@
                 {{ csrf_field() }} 
                 <!-- Select Box -->
 
-                <input type="number" name="quantity" id="quantity" min="0" value="1" max="99" class="form-control col-2 text-center"/>
+                Quantity: <input type="number" name="quantity" id="quantity" min="0" value="1" max="99" class="form-control col-2 text-center"/>
                 <div class="select-box d-flex mt-50 mb-30">
                     <select name="productSize" id="productSize" class="mr-5">
                         <option value="XL">Size: XLarge
