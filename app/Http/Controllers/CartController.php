@@ -15,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart');
+        return view('frontEnd.cart');
     }
 
     /**
@@ -36,10 +36,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        Cart::add($request->id, $request->name, 1, $request->price)
+        Cart::add($request->id, $request->name, $request->quantity, $request->price, ['size' => $request->productSize , 'color' => $request->productColor] )
             ->associate('App\Product');
 
-        return back();
+        return redirect()->route('frontEnd.cart.index')->with('success message', 'Item was added to your cart!');
         
     }
 
@@ -85,6 +85,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back()->with('success_message', 'Removed Item');
     }
 }

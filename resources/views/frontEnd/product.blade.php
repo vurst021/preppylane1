@@ -27,10 +27,9 @@
 
         <!-- Single Product Thumb -->
         <div class="single_product_thumb clearfix">
-            <div class="product_thumbnail_slides owl-carousel">
-                <img src="{{ asset('img/products/'. $product->slug. '.jpg') }}" alt="">
-                <img src="{{ asset('img/products/'. $product->slug. '.jpg') }}" alt="">
-                <img src="{{ asset('img/products/'. $product->slug. '.jpg') }}" alt="">
+            <div class="product_thumbnail_slides " style="border: solid;">
+                <img src="{{ asset('img/products/'. $product->slug. '.jpg') }}" alt="" />
+                
             </div>
         </div>
         
@@ -47,12 +46,17 @@
             <form class="cart-form clearfix" action="{{ route('frontEnd.cart.store') }}" method="post">
                 {{ csrf_field() }} 
                 <!-- Select Box -->
+
+                <input type="number" name="quantity" id="quantity" min="0" value="1" max="99" class="form-control col-2 text-center"/>
                 <div class="select-box d-flex mt-50 mb-30">
                     <select name="productSize" id="productSize" class="mr-5">
-                        <option value="XL">Size: XL</option>
-                        <option value="X">Size: X</option>
-                        <option value="M">Size: M</option>
-                        <option value="S">Size: S</option>
+                        <option value="XL">Size: XLarge
+                            <p>
+                                
+                            </p></option>
+                        <option value="X">Size: Large</option>
+                        <option value="M">Size: Medium</option>
+                        <option value="S">Size: Small</option>
                     </select>
                     <select name="productColor" id="productColor">
                         <option value="Black">Color: Black</option>
@@ -82,19 +86,6 @@
     <!-- ##### Single Product Details Area End ##### -->
 
     @include('frontEnd.partials.footer')
-
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="{{ asset('/js/jquery/jquery-2.2.4.min.js')}}"></script>
-    <!-- Popper js -->
-    <script src="{{ asset('/js/popper.min.js')}}"></script>
-    <!-- Bootstrap js -->
-    <script src="{{ asset('/js/bootstrap.min.js')}}"></script>
-    <!-- Plugins js -->
-    <script src="{{ asset('/js/plugins.js')}}"></script>
-    <!-- Classy Nav js -->
-    <script src="{{ asset('/js/classy-nav.min.js')}}"></script>
-    <!-- Active js -->
-    <script src="{{ asset('/js/active.js')}}"></script>
 
 </body>
 

@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f039b02e93b71d9bc5cf5d6f0c0a981",
+    "content-hash": "667e6a03166a15f6ab27a3b7b91e7ae9",
     "packages": [
+        {
+            "name": "aceraven777/laravel-paymaya",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aceraven777/laravel-paymaya.git",
+                "reference": "6d76c75685e83e1108996bf6a381206737b6b7cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aceraven777/laravel-paymaya/zipball/6d76c75685e83e1108996bf6a381206737b6b7cb",
+                "reference": "6d76c75685e83e1108996bf6a381206737b6b7cb",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "psr/log": "1.0.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aceraven777\\PayMaya\\PayMayaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aceraven777\\PayMaya\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aristheo Lacdao",
+                    "email": "aceraven777@gmail.com"
+                }
+            ],
+            "description": "PayMaya Payment integration to Laravel",
+            "time": "2018-06-10T05:56:42+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

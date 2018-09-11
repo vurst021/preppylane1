@@ -62,7 +62,12 @@
                 </div>
                 <!-- Cart Area -->
                 <div class="cart-area">
-                    <a href="" id="essenceCartBtn" data-toggle="modal" data-target=".bd-example-modal-lg"><img src="{{ asset('/img/core-img/bag.svg')}}" alt=""> <span>3</span></a>
+                    <a href="{{route('frontEnd.cart.index')}}" id="essenceCartBtn">
+                        <img src="{{ asset('/img/core-img/bag.svg')}}" alt="">
+                        @if (Cart::instance('default')->count() >0 )
+                            <span>{{ Cart::instance('default')->count() }}</span>
+                        @endif
+                    </a>
                 </div>
             </div>
 
@@ -74,57 +79,3 @@
     <!-- ##### Header Area End ##### -->
 
 
-
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content ">
-        <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body col-sm-12">
-            <div class="cart-content d-flex ">
-
-                <!-- Cart List Area -->
-                <div class="cart-list row">
-                    @foreach(Cart::content() as $item)
-                    <!-- Single Cart Item -->
-                    <div class="card bg-dark text white col-md-4">
-                        <a href="{{ route('frontEnd.shop.show', $item->model->slug ) }}" class="product-image">
-                            <img src="{{ asset('img/products/'. $item->model->slug. '.jpg') }}" class="card-img" alt="">
-                            <!-- Cart Item Desc -->
-                            <div class="card-img-overlay">
-                              <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-                                
-                                <h6>{{ $item->model->name }} </h6>
-                                <p class="size">Size</p>
-                                <p class="color">Color</p>
-                                <p class="price">{{ $item->model->presentPrice() }}</p>
-                            </div>
-                        </a>
-                    </div>
-                    @endforeach
-                </div>
-            </div>    
-
-            <!-- Cart Summary -->
-            <div class="cart-amount-summary col-sm-12">
-
-                <h2>Summary</h2>
-                <ul class="summary-table justify-content-end">
-                    <li><span>subtotal:</span> <span>$274.00</span></li>
-                    <li><span>delivery:</span> <span>Free</span></li>
-                    <li><span>discount:</span> <span>-15%</span></li>
-                    <li><span>total:</span> <span>$232.00</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-            <button type="button" class="btn btn-primary">Checkout</button>
-        </div>
-    </div>
-  </div>
-</div>

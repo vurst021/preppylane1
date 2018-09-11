@@ -1,4 +1,4 @@
-    <!-- ##### Footer Area Start ##### -->
+    <br><br><!-- ##### Footer Area Start ##### -->
     <footer class="footer_area clearfix">
         <div class="container">
             <div class="row">

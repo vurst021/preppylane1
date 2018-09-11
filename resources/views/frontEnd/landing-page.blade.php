@@ -138,7 +138,7 @@
                                 <div class="hover-content">
                                     <!-- Add to Cart -->
                                     <div class="add-to-cart-btn">
-                                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                                        <a href="{{ route('frontEnd.shop.show', $product->slug ) }}" class="btn essence-btn">View Product</a>
                                     </div>
                                 </div>
                             </div>
