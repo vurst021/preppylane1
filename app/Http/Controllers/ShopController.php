@@ -94,6 +94,8 @@ class ShopController extends Controller
         //
     }
 
+
+    //Paymaya Checkout
     public function checkout()
     {
         PayMayaSDK::getInstance()->initCheckout(
