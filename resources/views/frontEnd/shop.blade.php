@@ -29,7 +29,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>dresses</h2>
+                        <h2>Products</h2>
                     </div>
                 </div>
             </div>
@@ -211,7 +211,7 @@
                                             </div>
                                         </div>
                                     </a>
-
+                                
                                     <!-- Product Description -->
                                     <div class="product-description">
                                         <span>topshop</span>
@@ -232,8 +232,9 @@
                             </div>
                             @endforeach
                             
-
                         </div>
+                        </div>
+                    </div>
                     </div>
                     <!-- Pagination -->
                     <nav aria-label="navigation">
@@ -259,4 +260,4 @@
 
 </body>
 
-</html>
+</html

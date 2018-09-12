@@ -30,11 +30,8 @@
             <div class="card-header bg-pink text-light">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Cart
-<<<<<<< HEAD
-                <a href="{{route('frontEnd.shop')}}" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
-=======
-                <a href="" class="btn btn-outline-info btn-sm pull-right" style="color:white;border:white;">Continue shopping</a>
->>>>>>> c9e14401be3f794be6a5ac83b499c5f8c99aba75
+
+                
                 <div class="clearfix"></div>
             </div>
             @if(session()->has('success_message'))
@@ -116,6 +113,7 @@
 
                 @endif
                 <div class="pull-right">
+                    <a href="{{route('frontEnd.shop')}}" class="btn btn-secondary pull-right " style="color:white;border:white;">Continue shopping</a>
                     <a href="" class="btn btn-outline-secondary pull-right">
                         Update shopping cart
                     </a>
@@ -132,31 +130,27 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
+
                 <div class="pull-right text-right">
-                    <div class="pull-right" style="margin: 5px">
-                        SubTotal:<br>
-                        Tax:<br>
-                        Total:
-                    </div>
                     <div class="pull-right" style="margin: 5px">
                         {{ presentPrice(Cart::subtotal())}}<br>
                         {{ presentPrice(Cart::tax())}}<br>
                         {{ presentPrice(Cart::total())}}
-=======
-                <div class="pull-right" style="margin: 20px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
-                    <div class="pull-right" style="margin: 5px">
-                        Total price: <b>₱ {{ Cart::total() }}</b>
->>>>>>> c9e14401be3f794be6a5ac83b499c5f8c99aba75
                     </div>
-                     <br>
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
+                    <div class="pull-right" style="margin: 5px">
+                       
+                        SubTotal:<br>
+                        Tax:<br>
+                        Total:
+                    </div>
+                    <div>
+                        <a href="{{ route('frontEnd.checkout.index') }}" class="btn btn-success">Proceed to Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 
     @include('frontEnd.partials.footer')
 

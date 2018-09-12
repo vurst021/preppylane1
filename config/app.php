@@ -159,6 +159,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Anouar\Paypalpayment\PaypalpaymentServiceProvider::class,
 
     ],
 
@@ -208,7 +209,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Paypalpayment'   => Anouar\Paypalpayment\Facades\PaypalPayment::class,
     ],
 
 ];

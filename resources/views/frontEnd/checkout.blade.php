@@ -131,10 +131,12 @@
 
                         <ul class="order-details-form mb-4">
                             <li><span>Product</span> <span>Total</span></li>
-                            <li><span>Cocktail Yellow dress</span> <span>$59.90</span></li>
-                            <li><span>Subtotal</span> <span>$59.90</span></li>
-                            <li><span>Shipping</span> <span>Free</span></li>
-                            <li><span>Total</span> <span>$59.90</span></li>
+                            @foreach(Cart::content() as $item)
+                            <li style="color:red;"><span>{{ $item->qty }} &nbsp {{ $item->model->name }}</span> <span>{{ $item->model->presentPrice() }}</span></li>
+                            @endforeach
+                            <li><span>Subtotal</span> <span>{{ presentPrice(Cart::subtotal())}}</span></li>
+                            <li><span>Shipping and Tax</span> <span>{{ presentPrice(Cart::tax())}}</span></li>
+                            <li><span>Total</span> <span>{{ presentPrice(Cart::total())}}</span></li>
                         </ul>
 
                         <div id="accordion" role="tablist" class="mb-4">
@@ -144,6 +146,7 @@
                                         <a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>Paypal</a>
                                     </h6>
                                 </div>
+
 
                                 <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
@@ -186,6 +189,68 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est cum autem eveniet saepe fugit, impedit magni.</p>
                                     </div>
                                 </div>
+                                <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                                    <div id="paypal-button-container"></div>
+                                        <script>
+
+                                            // Render the PayPal button
+
+                                            paypal.Button.render({
+
+                                                // Set your environment
+
+                                                env: 'sandbox', // sandbox | production
+
+                                                // Specify the style of the button
+
+                                                style: {
+                                                    layout: 'vertical',  // horizontal | vertical
+                                                    size:   'medium',    // medium | large | responsive
+                                                    shape:  'rect',      // pill | rect
+                                                    color:  'gold'       // gold | blue | silver | black
+                                                },
+
+                                                // Specify allowed and disallowed funding sources
+                                                //
+                                                // Options:
+                                                // - paypal.FUNDING.CARD
+                                                // - paypal.FUNDING.CREDIT
+                                                // - paypal.FUNDING.ELV
+
+                                                funding: {
+                                                    allowed: [ paypal.FUNDING.CARD, paypal.FUNDING.CREDIT ],
+                                                    disallowed: [ ]
+                                                },
+
+                                                // PayPal Client IDs - replace with your own
+                                                // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+
+                                                client: {
+                                                    sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+                                                    production: '<insert production client id>'
+                                                },
+
+                                                payment: function(data, actions) {
+                                                    return actions.payment.create({
+                                                        payment: {
+                                                            transactions: [
+                                                                {
+                                                                    amount: { total: '0.01', currency: 'USD' }
+                                                                }
+                                                            ]
+                                                        }
+                                                    });
+                                                },
+
+                                                onAuthorize: function(data, actions) {
+                                                    return actions.payment.execute().then(function() {
+                                                        window.alert('Payment Complete!');
+                                                    });
+                                                }
+
+                                            }, '#paypal-button-container');
+
+                                        </script>
                             </div>
                         </div>
 
@@ -195,6 +260,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
     <!-- ##### Checkout Area End ##### -->
 
     @include('frontEnd.partials.footer')

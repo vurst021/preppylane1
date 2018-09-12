@@ -34,10 +34,15 @@ Route::get('/empty' , function(){
 	Cart::destroy();
 });
 
+//Checkout Controller
+Route::get('/checkout', 'CheckoutController@index')->name('frontEnd.checkout.index');
 // Route::get('/cart', function () {
 //     return view('frontEnd.cart');
 // });
 
+
+//payment
+//reqource('payment', 'PaymentController');
 
 // Route::get('/shop', function () {
 //     return view('frontEnd.shop');
