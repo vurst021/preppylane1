@@ -105,7 +105,7 @@ class CartController extends Controller
     {
         Cart::remove($id);
 
-        return back()->with('success_message', 'Removed Item');
+        return back()->with('danger_message', 'Removed Item');
     }
 
     //Paymaya Checkout

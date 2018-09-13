@@ -1,41 +1,32 @@
     <br><br><!-- ##### Footer Area Start ##### -->
-    <footer class="footer_area clearfix">
+    <footer class="footer_area clearfix" >
         <div class="container">
-            <div class="row">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area d-flex mb-30">
-                        <!-- Logo -->
-                        
-                        <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <ul>
-                                <li><strong><a href="{{ route('frontEnd.landing-page')}}">PreppyLane</a></strong></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>PreppyLane</h5>
+                    <hr class="light">
+                    <p>55-555-5555</p>
+                    <p>preppyLane@gmail.com</p>
+                    <p>Universidad De Manila</p>
+                    <p>Manila,Phillippines</p>
                 </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-md-6">
-                    <div class="single_widget_area mb-30">
-                        <ul class="footer_widget_menu">
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Payment Options</a></li>
-                            <li><a href="#">Shipping and Delivery</a></li>
-                            <li><a href="#">Guides</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Our Hours</h5>
+                    <hr class="light">
+                    <p>Monday-Friday :  9am-7pm</p>
+                    <p>Sat-Sun: Closed</p>
                 </div>
-            </div>
-
-            <div class="row align-items-end">
-                
-                
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Service Area</h5>
+                    <hr class="light">
+                    <p>Tondo, Manila</p>
+                    <p>Paco, Manila</p>
+                    <p>Pandacan, Manila</p>
+                    <p>Binondo, Manila</p>
+                </div>
             </div>
 
 <div class="row mt-5">

@@ -38,6 +38,10 @@
                 <div class="alert alert-success">
                     {{ session()->get('success_message')}}
                 </div>
+            @elseif(session()->has('danger_message'))
+                <div class="alert alert-danger">
+                    {{ session()->get('danger_message')}}
+                </div>
             @endif
 
             @if(count($errors)>0)
@@ -150,7 +154,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
     @include('frontEnd.partials.footer')
 

@@ -70,10 +70,8 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </header>
-<br>
     <!-- ##### Right Side Cart End ##### -->
 
     <!-- ##### Header Area End ##### -->
