@@ -48,12 +48,27 @@
                 <div class="alert alert-danger">
                     <ul>
                         @foreach($errors->all() as $error)
-                            <li>{{error}}</li>
+                            <li>{{$error}}</li>
                         @endforeach
                     </ul>
                 </div>
             @endif
+            <!-- Payment Status -->
+            @if ($message = Session::get('success'))
+            <div class="custom-alerts alert alert-success fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                {!! $message !!}
+            </div>
+            <?php Session::forget('success');?>
+            @endif
 
+            @if ($message = Session::get('error'))
+            <div class="custom-alerts alert alert-danger fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                {!! $message !!}
+            </div>
+            <?php Session::forget('error');?>
+            @endif
             @if(Cart::count() > 0 )
 
             <div class="card-body">

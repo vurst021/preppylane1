@@ -49,7 +49,7 @@
                             <h5>Billing Address</h5>
                         </div>
 
-                        <form action="#" method="post">
+                        <form action="#" id="form" name="form"method="post">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="first_name">First Name <span>*</span></label>
@@ -132,9 +132,21 @@
                         <ul class="order-details-form mb-4">
                             <li><span>Product</span> <span>Total</span></li>
                             @foreach(Cart::content() as $item)
-                            <li style="color:red;"><span>{{ $item->qty }} &nbsp {{ $item->model->name }}</span> <span>{{ $item->model->presentPrice() }}</span></li>
+                            <li style="color:red;">
+                                <span>
+                                    {{ $item->model->name }} &nbsp&times {{ $item->qty }}
+                                </span>
+                                <span>
+                                    {{ presentPrice(number_format($item->price * $item->qty, 2 , '.', ',')) }}
+                                </span>
+                            </li>
                             @endforeach
-                            <li><span>Subtotal</span> <span>{{ presentPrice(Cart::subtotal())}}</span></li>
+                            <li>
+                                <span>
+                                Subtotal</span> <span>
+                                    {{ presentPrice(Cart::subtotal())}}
+                                </span>
+                            </li>
                             <li><span>Shipping and Tax</span> <span>{{ presentPrice(Cart::tax())}}</span></li>
                             <li><span>Total</span> <span>{{ presentPrice(Cart::total())}}</span></li>
                         </ul>
@@ -152,6 +164,9 @@
                                     <div class="card-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
                                     </div>
+                                    <button form="form" class="btn essence-btn">
+                                        Pay with Paypal
+                                    </button>
                                 </div>
                             </div>
                             <div class="card">
@@ -160,13 +175,16 @@
                                         <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery</a>
                                     </h6>
                                 </div>
-                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                                     <div class="card-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in veritatis officia inventore, tempore provident dignissimos.</p>
                                     </div>
+                                    <button form="form" class="btn essence-btn">
+                                        Place Order
+                                    </button>
                                 </div>
                             </div>
-                            <div class="card">
+{{--                             <div class="card">
                                 <div class="card-header" role="tab" id="headingThree">
                                     <h6 class="mb-0">
                                         <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa fa-circle-o mr-3"></i>credit card</a>
@@ -188,8 +206,8 @@
                                     <div class="card-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est cum autem eveniet saepe fugit, impedit magni.</p>
                                     </div>
-                                </div>
-                                <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                                </div> --}}
+{{--                                 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
                                     <div id="paypal-button-container"></div>
                                         <script>
 
@@ -251,10 +269,8 @@
                                             }, '#paypal-button-container');
 
                                         </script>
-                            </div>
+                            </div> --}}
                         </div>
-
-                        <a href="#" class="btn essence-btn">Place Order</a>
                     </div>
                 </div>
             </div>
