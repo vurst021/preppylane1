@@ -67,18 +67,20 @@ class PaymentController extends Controller
 
     	$items = [];
     	$total=0;
-    	
-    	foreach(Cart::content() as $item){
-	    	$item_new = new Item();
 
-	        $item_new->setName($item->name) /** item name **/
-	            ->setCurrency('PHP')
-	            ->setQuantity($item->qty)
-	            ->setPrice($item->price); /** unit price **/
+    	if(count(Cart::content())>0){
+	    	foreach(Cart::content() as $item){
+		    	$item_new = new Item();
 
-	            array_push($items, $item_new);
+		        $item_new->setName($item->name) /** item name **/
+		            ->setCurrency('PHP')
+		            ->setQuantity($item->qty)
+		            ->setPrice($item->price); /** unit price **/
 
-	            $total = $total + ($item->qty * $item->price);
+		            array_push($items, $item_new);
+
+		            $total = $total + ($item->qty * $item->price);
+			}
 		}
 
 
@@ -95,8 +97,8 @@ class PaymentController extends Controller
             ->setDescription('Your transaction description');
 
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(URL::route('frontEnd.cart.index')) /** Specify return URL **/
-            ->setCancelUrl(URL::route('frontEnd.cart.index'));
+        $redirect_urls->setReturnUrl(URL::route('frontEnd.cart.success')) /** Specify return URL **/
+            ->setCancelUrl(URL::route('frontEnd.cart.success'));
 
         $payment = new Payment();
         $payment->setIntent('Sale')

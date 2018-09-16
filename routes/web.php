@@ -25,6 +25,7 @@ Route::get('/shop/{product}', 'ShopController@show')->name('frontEnd.shop.show')
 
 //Cart Controller
 Route::get('/cart', 'CartController@index')->name('frontEnd.cart.index');
+Route::get('/cart/success', 'CartController@success')->name('frontEnd.cart.success');
 Route::post('/cart', 'CartController@store')->name('frontEnd.cart.store');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('frontEnd.cart.destroy');
 Route::get('/cart/checkout', 'CartController@checkout')->name('frontEnd.cart.checkout');
@@ -36,6 +37,7 @@ Route::get('/empty' , function(){
 
 //Checkout Controller
 Route::get('/checkout', 'CheckoutController@index')->name('frontEnd.checkout.index');
+Route::get('/cod/checkout', 'CartController@successCod')->name('frontEnd.checkout.successCod');
 Route::get('/paypal/checkout', 'PaymentController@postPaymentWithpaypal')->name('frontEnd.checkout.paypal');
 // Route::get('/cart', function () {
 //     return view('frontEnd.cart');

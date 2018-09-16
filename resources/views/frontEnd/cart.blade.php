@@ -139,31 +139,36 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+                <div class="coupon col-md-12 col-sm-12 no-padding-left">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-3">
                             <input type="text" class="form-control" placeholder="cupone code">
                         </div>
-                        <div class="col-6">
+                        <div class="col-5">
                             <input type="submit" class="btn btn-default" value="Use cupone">
                         </div>
-                    </div>
-                </div>
 
-                <div class="pull-right text-right">
-                    <div class="pull-right" style="margin: 5px">
-                        {{ presentPrice(Cart::subtotal())}}<br>
-                        {{ presentPrice(Cart::tax())}}<br>
-                        {{ presentPrice(Cart::total())}}
-                    </div>
-                    <div class="pull-right" style="margin: 5px">
-                       
-                        SubTotal:<br>
-                        Tax:<br>
-                        Total:
-                    </div>
-                    <div>
-                        <a href="{{ route('frontEnd.checkout.index') }}" class="btn btn-success">Proceed to Checkout</a>
+
+                        <div class="col-md-4 text-right">
+                            <div class="pull-right" style="margin: 5px">
+                                {{ presentPrice(Cart::subtotal())}}<br>
+                                {{ presentPrice(Cart::tax())}}<br>
+                                {{ presentPrice(Cart::total())}}
+                            </div>
+                            <div class="pull-right" style="margin: 5px">
+                               
+                                SubTotal:<br>
+                                Tax:<br>
+                                Total:
+                            </div>
+                            <div>
+                                @if(count(Cart::content())>0)
+                                    <a href="{{ route('frontEnd.checkout.index') }}" class="btn btn-success">Proceed to Checkout</a>
+                                @else
+                                    <button class="btn btn-success" disabled>Proceed to Checkout</button>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
