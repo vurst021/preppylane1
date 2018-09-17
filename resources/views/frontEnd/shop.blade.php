@@ -54,14 +54,12 @@
                                 <ul id="menu-content2" class="menu-content collapse show">
                                     <!-- Single Item -->
                                     <li data-toggle="collapse" data-target="#clothing">
-                                        <a href="#">clothing</a>
+                                        
                                         <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Tops</a></li>
-                                            <li><a href="#">Pants </a></li>
-                                            <li><a href="#">Shorts </a></li>
-                                            
+                                            <li><a href="{{ route('frontEnd.shop')}}">All</a></li>
+                                            @foreach ($categories as $category)
+                                            <li><a href="{{ route('frontEnd.shop', [ 'category' => $category->slug ]) }}">{{ $category->name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
                                    
@@ -78,7 +76,9 @@
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>{{ $productCount }}</span> products found</p>
+                                        
+                                        <p><span>{{ $productCount }}</span> {{ $categoryName }} found</p>
+                                       
                                     </div>
                                     <!-- Sorting -->
                                     <div class="product-sorting d-flex">
