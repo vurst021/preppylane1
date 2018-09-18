@@ -49,8 +49,7 @@
                             <h5>Billing Address</h5>
                         </div>
 
-                        <form action="{{ route('frontEnd.checkout.paypal') }}" id="form" name="form" method="get">
-                        <form action="{{ route('frontEnd.checkout.successCod') }}" id="form" name="formCod" method="get">
+                        <form action="#" id="form" name="form"method="post">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="first_name">First Name <span>*</span></label>
@@ -65,9 +64,8 @@
                                     <input type="text" class="form-control" id="company" value="">
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <label for="country">Country <span>*</span>
-                                    </label>
-                                    <select class="w-100" name="country" id="country">
+                                    <label for="country">Country <span>*</span></label>
+                                    <select class="w-100" id="country">
                                         <option value="usa">United States</option>
                                         <option value="uk">United Kingdom</option>
                                         <option value="ger">Germany</option>
@@ -76,7 +74,6 @@
                                         <option value="aus">Australia</option>
                                         <option value="bra">Brazil</option>
                                         <option value="cana">Canada</option>
-                                        <option value="ph" selected>Philippines</option>
                                     </select>
                                 </div>
                                 <div class="col-12 mb-3">
@@ -106,7 +103,7 @@
                                 </div>
 
                                 <div class="col-12">
-{{--                                     <div class="custom-control custom-checkbox d-block mb-2">
+                                    <div class="custom-control custom-checkbox d-block mb-2">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Terms and conitions</label>
                                     </div>
@@ -117,10 +114,9 @@
                                     <div class="custom-control custom-checkbox d-block">
                                         <input type="checkbox" class="custom-control-input" id="customCheck3">
                                         <label class="custom-control-label" for="customCheck3">Subscribe to our newsletter</label>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
-                        </form>
                         </form>
                     </div>
                 </div>
@@ -154,7 +150,7 @@
                             <li><span>Shipping and Tax</span> <span>{{ presentPrice(Cart::tax())}}</span></li>
                             <li><span>Total</span> <span>{{ presentPrice(Cart::total())}}</span></li>
                         </ul>
-                            Payment method (Please Select one):
+
                         <div id="accordion" role="tablist" class="mb-4">
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
@@ -164,7 +160,7 @@
                                 </div>
 
 
-                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum sodales arcu id te mpus. Ut consectetur lacus.</p>
                                     </div>
@@ -179,15 +175,13 @@
                                         <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa fa-circle-o mr-3"></i>cash on delievery</a>
                                     </h6>
                                 </div>
-                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                                     <div class="card-body">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in veritatis officia inventore, tempore provident dignissimos.</p>
                                     </div>
-                                    <a href={{ route('frontEnd.checkout.successCod') }}>
-                                            <button form="formCod" class="btn essence-btn">
+                                    <button form="form" class="btn essence-btn">
                                         Place Order
                                     </button>
-                                    </a>
                                 </div>
                             </div>
 {{--                             <div class="card">

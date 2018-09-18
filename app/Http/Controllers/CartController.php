@@ -108,30 +108,6 @@ class CartController extends Controller
         return back()->with('danger_message', 'Removed Item');
     }
 
-    /**
-     * Remove the specified resource from storage.when.success.paid
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function success()
-    {
-        Cart::destroy();
-
-        return redirect()->route('frontEnd.cart.index')->with('success_message', 'Item(s) purchased');
-    }    
-
-    /**
-     * Remove the specified resource from storage.when.COD.process
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function successCod()
-    {
-        Cart::destroy();
-
-        return redirect()->route('frontEnd.cart.index')->with('success_message', 'Item(s) will be delivered please pay the item(s) upon deliverance');
-    }   
-
     //Paymaya Checkout
     public function checkout()
     {
