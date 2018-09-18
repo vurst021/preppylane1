@@ -42,6 +42,10 @@ Route::get('/empty' , function(){
 
 //Checkout Controller
 Route::get('/checkout', 'CheckoutController@index')->name('frontEnd.checkout.index');
+<<<<<<< HEAD
+=======
+Route::get('/paypal/checkout', 'PaymentController@postPaymentWithpaypal')->name('frontEnd.checkout.paypal');
+>>>>>>> parent of 002b651... Awesome Changes
 // Route::get('/cart', function () {
 //     return view('frontEnd.cart');
 // });
