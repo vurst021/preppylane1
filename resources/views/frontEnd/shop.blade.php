@@ -98,12 +98,10 @@
                         </div>
 
                             <div class="row">
-                                <div class="col-12">
-                                    <div class="popular-products-slides owl-carousel">
                                         
                                         @foreach ($products as $product)
                                         <!-- Single Product -->
-                                        <div class="single-product-wrapper">
+                                        <div class="single-product-wrapper col-md-4">
                                             <!-- Product Image -->
                                             <div class="product-img">
                                                 <img src="{{ asset('img/products/'. $product->slug. '.jpg') }}" alt="">
@@ -133,8 +131,8 @@
                                         </div>
                                         @endforeach
 
-                                    </div>
-                                </div>
+                                   
+
                             </div>
                         </div>
                     </div>
