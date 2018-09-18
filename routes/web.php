@@ -42,7 +42,6 @@ Route::get('/empty' , function(){
 
 //Checkout Controller
 Route::get('/checkout', 'CheckoutController@index')->name('frontEnd.checkout.index');
-Route::get('/paypal/checkout', 'PaymentController@postPaymentWithpaypal')->name('frontEnd.checkout.paypal');
 // Route::get('/cart', function () {
 //     return view('frontEnd.cart');
 // });
